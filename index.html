@@ -13,7 +13,6 @@ div {
 </style>
 <script src="wordList.js"></script>
 <script>
-var words = ["hello", "retreat", "date", "miserable", "opposed"];
 var curWord = null;
 trans = {
   'a': 'alpha',
@@ -83,11 +82,16 @@ function check() {
 
   document.getElementById('again').style.display="inline";
 }
+
+function help() {
+  alert("a: alpha\nb: bravo\nc: charlie\nd: delta\ne: echo\nf: foxtrot\ng: golf\nh: hotel\ni: india\nj: juliet\nk: kilo\nl: lima\nm: mike\nn: november\no: oscar\np: papa\nq: quebec\nr: romeo\ns: sierra\nt: tango\nu: uniform\nv: victor\nw: whiskey\nx: xray\ny: yankee\nz: zulu\n");
+  return true;
+}
 </script>
 </head>
 <body onload="go()">
+<div>Enter the phonetic equivalent for: <mark><span id="word"></span></mark> <button onclick="help()" title="a: alpha&#013;b: bravo&#013;c: charlie&#013;d: delta&#013;e: echo&#013;f: foxtrot&#013;g: golf&#013;h: hotel&#013;i: india&#013;j: juliet&#013;k: kilo&#013;l: lima&#013;m: mike&#013;n: november&#013;o: oscar&#013;p: papa&#013;q: quebec&#013;r: romeo&#013;s: sierra&#013;t: tango&#013;u: uniform&#013;v: victor&#013;w: whiskey&#013;x: xray&#013;y: yankee&#013;z: zulu&#013;">?</button></div>
 <form method="get" action="#" onsubmit="check()">
-<div>Enter the phonetic equivalent for: <mark><span id="word"></span></mark></div>
 <div><input id="guess" type="text" autocomplete="off" placeholder="Enter NATO text", size="40"></div>
 <div><input type="submit" value="Check"></div>
 </form>
