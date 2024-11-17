@@ -1,1 +1,99 @@
-<h1>Nato</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>NATO Phonetic Alphabet Practice</title>
+<style>
+body, input, button {
+  font-family: sans-serif;
+  font-size: x-large;
+}
+div {
+  margin: .5em;
+}
+</style>
+<script src="wordList.js"></script>
+<script>
+var words = ["hello", "retreat", "date", "miserable", "opposed"];
+var curWord = null;
+trans = {
+  'a': 'alpha',
+  'b': 'bravo',
+  'c': 'charlie',
+  'd': 'delta',
+  'e': 'echo',
+  'f': 'foxtrot',
+  'g': 'golf',
+  'h': 'hotel',
+  'i': 'india',
+  'j': 'juliet',
+  'k': 'kilo',
+  'l': 'lima',
+  'm': 'mike',
+  'n': 'november',
+  'o': 'oscar',
+  'p': 'papa',
+  'q': 'quebec',
+  'r': 'romeo',
+  's': 'sierra',
+  't': 'tango',
+  'u': 'uniform',
+  'v': 'victor',
+  'w': 'whiskey',
+  'x': 'xray',
+  'y': 'yankee',
+  'z': 'zulu'
+}
+function go() {
+  document.getElementById("guess").value = '';
+  document.getElementById('correct').innerHTML = '';
+  document.getElementById('yours').innerHTML = '';
+  document.getElementById('message').innerHTML = '';
+  document.getElementById('again').style.display="none"
+  document.getElementById("guess").focus();
+  
+  curWord = words[Math.floor(Math.random()*words.length)];
+  document.getElementById("word").innerHTML = curWord;
+}
+function check() {
+  // determine correct string
+  let correct = '';
+  for (let i = 0; i < curWord.length; i++) {
+    correct += trans[curWord[i]] + ' '
+  }
+  document.getElementById('correct').innerHTML = "Correct string:\t" + correct;
+  
+  // determine user guess string
+  let guess = document.getElementById("guess").value;
+  let words = guess.toLowerCase().split(/\s+/);
+  let yours = "";
+  for (let i = 0; i < words.length; i++) {
+    yours += words[i].toLowerCase() + ' '; 
+  }
+  document.getElementById('yours').innerHTML = "Your response:\t" + yours;
+  
+  // report result
+  if (correct == yours) {
+    document.getElementById('message').innerHTML = "Congratulations!  You got it right!";
+    document.getElementById('message').style.backgroundColor="LightGreen";
+  }
+  else {
+    document.getElementById('message').innerHTML = "Sorry, that's not correct.";
+    document.getElementById('message').style.backgroundColor="LightPink"
+  }
+
+  document.getElementById('again').style.display="inline";
+}
+</script>
+</head>
+<body onload="go()">
+<form method="get" action="#" onsubmit="check()">
+<div>Enter the phonetic equivalent for: <mark><span id="word"></span></mark></div>
+<div><input id="guess" type="text" autocomplete="off" placeholder="Enter NATO text", size="40"></div>
+<div><input type="submit" value="Check"></div>
+</form>
+<div id="correct"></div>
+<div id="yours"></div>
+<div id="message"></div>
+<div><button id="again" onclick="go()" style="display:none">Try Another</button></div>
+</body>
+</html>
