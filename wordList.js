@@ -1,0 +1,1 @@
+var words = ["hello", "retreat", "date", "miserable", "opposed"];
