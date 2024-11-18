@@ -59,6 +59,7 @@ function check() {
   }
 
   document.getElementById('again').style.display="inline";
+  document.getElementById('again').focus();
 }
 
 function help() {
@@ -70,6 +71,10 @@ function keyHandler() {
   if (document.activeElement == document.getElementById('guess') && event.keyCode == 13) {
     check();
     return false;
+  }
+  else if (document.activeElement == document.getElementById('again') && event.keyCode == 13) {
+    go();
+    return flase;
   }
 }
 </script>
