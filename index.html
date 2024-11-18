@@ -60,6 +60,7 @@ function check() {
 
   document.getElementById('again').style.display="inline";
   document.getElementById('again').focus();
+  return false;
 }
 
 function help() {
@@ -68,13 +69,15 @@ function help() {
 }
 
 function keyHandler() {
-  if (document.activeElement == document.getElementById('guess') && event.keyCode == 13) {
-    check();
-    return false;
-  }
-  else if (document.activeElement == document.getElementById('again') && event.keyCode == 13) {
-    go();
-    return flase;
+  if (event.keyCode == 13) {
+    if (document.activeElement == document.getElementById('guess')) {
+      event.preventDefault();
+	  check();
+    }
+    else if (document.activeElement == document.getElementById('again')) {
+      event.preventDefault();
+	  go();
+    }
   }
 }
 </script>
@@ -86,6 +89,6 @@ function keyHandler() {
 <div id="correct"></div>
 <div id="yours"></div>
 <div id="message"></div>
-<div><button id="again" onclick="go()" style="display:none">Try Another</button></div>
+<div><input type="button" id="again" onclick="go()" onkeydown="keyHandler()" style="display:none" value="Try Another"></div>
 </body>
 </html>
