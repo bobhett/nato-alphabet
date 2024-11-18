@@ -99,7 +99,7 @@ function keyHandler() {
 <body onload="go()">
 <div>Enter the phonetic equivalent for: <mark><span id="word"></span></mark> <button onclick="help()" title="a: alpha&#013;b: bravo&#013;c: charlie&#013;d: delta&#013;e: echo&#013;f: foxtrot&#013;g: golf&#013;h: hotel&#013;i: india&#013;j: juliet&#013;k: kilo&#013;l: lima&#013;m: mike&#013;n: november&#013;o: oscar&#013;p: papa&#013;q: quebec&#013;r: romeo&#013;s: sierra&#013;t: tango&#013;u: uniform&#013;v: victor&#013;w: whiskey&#013;x: xray&#013;y: yankee&#013;z: zulu&#013;">?</button></div>
 <div><input id="guess" type="text" autocomplete="off" placeholder="Enter NATO text", size="40" onkeydown="keyHandler()"></div>
-<div><input type="button" onclick="go()" value="Check"></div>
+<div><input type="button" onclick="check()" value="Check"></div>
 <div id="correct"></div>
 <div id="yours"></div>
 <div id="message"></div>
